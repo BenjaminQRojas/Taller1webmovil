@@ -74,4 +74,5 @@ Responsividad y experiencia de usuario
 ### INTEGRANTES
 ## Nicolás Ignacio Peralta | 21.004.634-8
 ## Mauricio Díaz González | 21.227.728-2
+## Benjamín Quiroz Rojas | 19.956.115-4
 
