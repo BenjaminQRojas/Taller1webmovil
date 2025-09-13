@@ -71,3 +71,6 @@ Responsividad y experiencia de usuario
 
     ● La experiencia de usuario debe ser fluida y atractiva.
 
+### INTEGRANTES
+## Nicolás Ignacio Peralta | 21.004.634-8
+
