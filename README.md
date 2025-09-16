@@ -78,8 +78,8 @@ Responsividad y experiencia de usuario
 
 
 ### APIs
-## PokeAPI
-## MealAPI
-## StarWarsAPI
-## CatAPI
+ ● PokeAPI
+ ● MealAPI
+ ● StarWarsAPI
+ ● CatAPI
 
