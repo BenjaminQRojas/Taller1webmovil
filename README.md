@@ -83,3 +83,9 @@ Responsividad y experiencia de usuario
  ● StarWarsAPI
  ● CatAPI
 
+### Roles
+# Nico CSS
+# Benja Fetch
+# Mauri Queries
+# Vicente HTML->QA
+
