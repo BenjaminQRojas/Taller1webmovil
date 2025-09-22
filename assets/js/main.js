@@ -91,9 +91,22 @@ async function renderCatImage() {
 }
 
 
+//Menú movil
 document.addEventListener('DOMContentLoaded', () => {
     renderPokemon();
     renderMeal();
     renderStarWarsCharacter();
     renderCatImage();
+});
+
+const btn = document.getElementById('dropdown-btn');
+const menu = document.getElementById('dropdown-menu');
+
+btn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  menu.classList.toggle('show');
+});
+
+window.addEventListener('click', () => {
+  menu.classList.remove('show'); //cierra si clic afuera
 });

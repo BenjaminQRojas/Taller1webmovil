@@ -30,8 +30,9 @@ header {
 
 .header-content {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 1rem 0;
 }
 
@@ -83,6 +84,7 @@ main h2 {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 15px;
 }
 
 /* Cards */
@@ -164,7 +166,71 @@ footer {
 footer p {
     font-size: 0.875rem;
 }
+
+.mobile-menu {
+    margin-left: auto;
+    display: none;
+    position: relative;
+}
+
+.mobile-menu button {
+    background: white;       
+    color: rgb(42, 12, 214); 
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Dropdown móvil */
+.dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1e40af;
+    padding: 0.5rem 0;
+    border-radius: 0.25rem;
+    list-style: none;
+    width: 180px;
+    z-index: 50;
+}
+
+.dropdown.show {
+    display: flex;
+}
+
+.dropdown li {
+    margin: 0;
+    background-color: #1e40af;
+}
+
+.dropdown a {
+    display: block;
+    margin: 0;
+    padding: 10px;
+    width: 160px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdown a:hover {
+    background-color: #2563eb;
+}
+
 /* Responsive Design */
+@media (max-width: 700px) {
+    .links {
+    display: none;
+    }
+    .mobile-menu {
+    display: block;
+    }
+}
+
 
 /* Animaciones */
 @keyframes fadeIn {
