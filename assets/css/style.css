@@ -259,3 +259,30 @@ footer p {
 .card:nth-child(4) {
     animation-delay: 0.3s;
 }
+
+/* Botón Refrescar */
+.btn-refrescar {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-refrescar:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+
+.btn-refrescar:active {
+    transform: translateY(0);
+}
+
+.btn-refrescar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}d
