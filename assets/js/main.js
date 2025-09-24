@@ -99,7 +99,6 @@ async function renderCatImage() {
 }
 
 
-//Menú movil
 document.addEventListener('DOMContentLoaded', () => {
     renderPokemon();
     renderMeal();
@@ -107,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCatImage();
 });
 
+//Menú movil
 const btn = document.getElementById('dropdown-btn');
 const menu = document.getElementById('dropdown-menu');
 
