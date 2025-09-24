@@ -2,6 +2,7 @@ import { getPokemon } from './api/pokeapi.js';
 import { getRandomMeal } from './api/themealdbapi.js';
 import { getStarWarsCharacter } from './api/starwarsapi.js';
 import { getRandomCatImage } from './api/thecatapi.js';
+import { capitalizeFirstLetter } from './api/utils.js';
 
 
 async function renderPokemon() {
@@ -11,14 +12,16 @@ async function renderPokemon() {
     if (pokemon) {
         document.getElementById('poke-imgen').src = pokemon.image;
         document.getElementById('poke-imgen').alt = `Imagen de ${pokemon.name}`;
-        document.getElementById('poke-nombre').textContent = pokemon.name.toUpperCase();
         
+        const capitalizedName = capitalizeFirstLetter(pokemon.name);
+        document.getElementById('poke-nombre').textContent = capitalizedName;
+
         const characteristicsList = document.getElementById('poke-carasteristicas');
         characteristicsList.innerHTML = '';
 
         pokemon.types.forEach(type => {
             const listItem = document.createElement('li');
-            listItem.textContent = `Tipo: ${type}`;
+            listItem.textContent = `Tipo: ${capitalizeFirstLetter(type)}`;
             characteristicsList.appendChild(listItem);
         });
     } else {
@@ -84,6 +87,11 @@ async function renderCatImage() {
         
         const listItem1 = document.createElement('li');
         listItem1.textContent = "Un adorable compañero.";
+
+        const listItem2 = document.createElement('li');
+        listItem2.textContent = `Raza: ${cat.breed}`;
+        
+        characteristicsList.appendChild(listItem2);
         characteristicsList.appendChild(listItem1);
     } else {
         document.getElementById('Gatos-del-Dia').innerHTML = '<p>No se pudo cargar la imagen del gato.</p>';
