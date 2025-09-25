@@ -93,6 +93,16 @@ async function renderCatImage() {
         
         characteristicsList.appendChild(listItem2);
         characteristicsList.appendChild(listItem1);
+
+         //guardar gato en localstorage
+        localStorage.setItem("selectedCat", JSON.stringify(cat));
+
+        //hacer click en la tarjeta
+        const catCard = document.getElementById("Gatos-del-Dia");
+        catCard.addEventListener("click", () => {
+            window.location.href = "pages/gatosdetalle.html";
+        });
+
     } else {
         document.getElementById('Gatos-del-Dia').innerHTML = '<p>No se pudo cargar la imagen del gato.</p>';
     }

@@ -42,6 +42,10 @@ header {
     margin-bottom: 1rem;
 }
 
+.links {
+    display: none;
+}
+
 .links ul {
     display: flex;
     flex-wrap: wrap;
@@ -169,7 +173,7 @@ footer p {
 
 .mobile-menu {
     margin-left: auto;
-    display: none;
+    display: block;
     position: relative;
 }
 
@@ -221,13 +225,33 @@ footer p {
     background-color: #2563eb;
 }
 
+.gatosdetalle .card {
+    margin-top: 18px;
+}
+
 /* Responsive Design */
-@media (max-width: 700px) {
+/*Mobile First
+El estilo para moviles ya está por defecto*/
+
+/*Tablet */
+@media (min-width: 768px) {
     .links {
-    display: none;
+        display: flex;
     }
+
     .mobile-menu {
-    display: block;
+        display: none;
+    }
+}
+
+/*Escritorio*/
+@media (min-width: 1024px) {
+    .links {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: none;
     }
 }
 
