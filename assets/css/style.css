@@ -5,10 +5,6 @@
     box-sizing: border-box;
 }
 
-html {
-  font-size: 18px;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f3f4f6;
@@ -44,10 +40,6 @@ header {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-}
-
-.links {
-    display: none;
 }
 
 .links ul {
@@ -177,7 +169,7 @@ footer p {
 
 .mobile-menu {
     margin-left: auto;
-    display: block;
+    display: none;
     position: relative;
 }
 
@@ -230,27 +222,12 @@ footer p {
 }
 
 /* Responsive Design */
-/*Mobile First
-El estilo para moviles ya está por defecto*/
-
-/*Tablet */
-@media (min-width: 768px) {
+@media (max-width: 700px) {
     .links {
-    display: flex;
-    }
-    .mobile-menu {
     display: none;
     }
-
-}
-
-/*Escritorio*/
-@media (min-width: 1024px) {
-    .links {
-    display: flex;
-    }
     .mobile-menu {
-    display: none;
+    display: block;
     }
 }
 
