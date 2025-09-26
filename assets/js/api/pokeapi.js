@@ -8,7 +8,9 @@ export async function getPokemon(nameOrId) {
             name: pokemonData.name,
             id: pokemonData.id,
             image: pokemonData.sprites.front_default,
-            types: pokemonData.types.map(typeInfo => typeInfo.type.name)
+            types: pokemonData.types.map(typeInfo => typeInfo.type.name),
+            abilities: pokemonData.abilities.map(abilityInfo => abilityInfo.ability.name),
+            height: pokemonData.height // La altura viene en decímetros en la API
         };
     }
     return null;

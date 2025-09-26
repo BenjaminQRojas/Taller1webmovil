@@ -19,10 +19,23 @@ async function renderPokemon() {
         const characteristicsList = document.getElementById('poke-carasteristicas');
         characteristicsList.innerHTML = '';
 
-        pokemon.types.forEach(type => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Tipo: ${capitalizeFirstLetter(type)}`;
-            characteristicsList.appendChild(listItem);
+        if (pokemon.types && pokemon.types.length > 0) {
+            const typeItem = document.createElement('li');
+            typeItem.textContent = `Tipo: ${capitalizeFirstLetter(pokemon.types[0])}`;
+            characteristicsList.appendChild(typeItem);
+        }
+
+        if (pokemon.abilities && pokemon.abilities.length > 0) {
+            const abilityItem = document.createElement('li');
+            abilityItem.textContent = `Habilidad: ${capitalizeFirstLetter(pokemon.abilities[0])}`;
+            characteristicsList.appendChild(abilityItem);
+        }
+
+        localStorage.setItem("selectedPokemon", JSON.stringify(pokemon));
+        const pokemonCard = document.getElementById("pokemon-del-dia");
+        pokemonCard.addEventListener("click", () => {
+            window.location.href = "pages/pokemondetalle.html";
+
         });
     } else {
         document.getElementById('pokemon-del-dia').innerHTML = '<p>No se pudo cargar el Pokémon.</p>';
@@ -30,9 +43,10 @@ async function renderPokemon() {
 }
 
 async function renderMeal() {
-    const meal = await getRandomMeal();
-    
-    if (meal) {
+    try {
+        const meal = await getRandomMeal();
+        
+        if (meal) {
         document.getElementById('receta-imgen').src = meal.image;
         document.getElementById('receta-imgen').alt = `Imagen de la receta de ${meal.name}`;
         document.getElementById('receta-nombre').textContent = meal.name;
@@ -45,16 +59,24 @@ async function renderMeal() {
         characteristicsList.appendChild(listItem1);
 
         const listItem2 = document.createElement('li');
-        listItem2.textContent = `Instrucciones: ${meal.instructions.substring(0, 50)}...`;
+        const instructions = meal.instructions && meal.instructions.length > 50 
+            ? meal.instructions.substring(0, 50) + '...' 
+            : meal.instructions || 'Sin instrucciones';
+        listItem2.textContent = `Instrucciones: ${instructions}`;
         characteristicsList.appendChild(listItem2);
-    } else {
-        document.getElementById('receta-del-dia').innerHTML = '<p>No se pudo cargar la receta.</p>';
+        } else {
+            document.getElementById('receta-del-dia').innerHTML = '<p>No se pudo cargar la receta.</p>';
+        }
+    } catch (error) {
+        console.error('Error cargando receta:', error);
+        document.getElementById('receta-del-dia').innerHTML = '<p>Error al cargar la receta.</p>';
     }
 }
 
 async function renderStarWarsCharacter() {
-    const randomId = Math.floor(Math.random() * 82) + 1;
-    const character = await getStarWarsCharacter(randomId);
+    try {
+        const randomId = Math.floor(Math.random() * 82) + 1;
+        const character = await getStarWarsCharacter(randomId);
 
     if (character) {
         document.getElementById('star-wars-nombre').textContent = character.name;
@@ -76,13 +98,18 @@ async function renderStarWarsCharacter() {
             window.location.href = "pages/starwarsdetalle.html";
 
         });
-    } else {
-        document.getElementById('star-wars-del-dia').innerHTML = '<p>No se pudo cargar el personaje.</p>';
+        } else {
+            document.getElementById('star-wars-del-dia').innerHTML = '<p>No se pudo cargar el personaje.</p>';
+        }
+    } catch (error) {
+        console.error('Error cargando personaje Star Wars:', error);
+        document.getElementById('star-wars-del-dia').innerHTML = '<p>Error al cargar el personaje.</p>';
     }
 }
 
 async function renderCatImage() {
-    const cat = await getRandomCatImage();
+    try {
+        const cat = await getRandomCatImage();
 
     if (cat) {
         document.getElementById('gato-imgen').src = cat.url;
@@ -110,8 +137,12 @@ async function renderCatImage() {
             window.location.href = "pages/gatosdetalle.html";
         });
 
-    } else {
-        document.getElementById('Gatos-del-Dia').innerHTML = '<p>No se pudo cargar la imagen del gato.</p>';
+        } else {
+            document.getElementById('Gatos-del-Dia').innerHTML = '<p>No se pudo cargar la imagen del gato.</p>';
+        }
+    } catch (error) {
+        console.error('Error cargando gato:', error);
+        document.getElementById('Gatos-del-Dia').innerHTML = '<p>Error al cargar el gato.</p>';
     }
 }
 

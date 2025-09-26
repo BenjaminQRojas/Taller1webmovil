@@ -33,7 +33,7 @@ async function renderTenPokemon() {
                 typeLi.textContent = `Tipo: ${capitalizeFirstLetter(type)}`;
                 characteristicsList.appendChild(typeLi);
             });
-
+            /*
             if (pokemon.abilities && pokemon.abilities.length > 0) {
                 const abilityLi = document.createElement('li');
                 const randomAbility = pokemon.abilities[Math.floor(Math.random() * pokemon.abilities.length)];
@@ -44,7 +44,7 @@ async function renderTenPokemon() {
                 noAbilityLi.textContent = `Habilidad: Desconocida`;
                 characteristicsList.appendChild(noAbilityLi);
             }
-            
+            */
         } else {
             document.getElementById(`poke-nombre-${cardIndex}`).textContent = 'Error';
             document.getElementById(`poke-imgen-${cardIndex}`).src = 'https://placehold.co/160x160/e2e8f0/94a3b8?text=Error';
