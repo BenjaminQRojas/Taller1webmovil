@@ -69,6 +69,13 @@ async function renderStarWarsCharacter() {
         const listItem2 = document.createElement('li');
         listItem2.textContent = `Año de nacimiento: ${character.birth_year}`;
         characteristicsList.appendChild(listItem2);
+
+        localStorage.setItem("selectedStarWarsCharacter", JSON.stringify(character));
+        const starWarsCard = document.getElementById("star-wars-del-dia");
+        starWarsCard.addEventListener("click", () => {
+            window.location.href = "pages/starwarsdetalle.html";
+
+        });
     } else {
         document.getElementById('star-wars-del-dia').innerHTML = '<p>No se pudo cargar el personaje.</p>';
     }

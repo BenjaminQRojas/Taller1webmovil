@@ -30,7 +30,7 @@ async function renderTenPokemon() {
 
             pokemon.types.forEach(type => {
                 const typeLi = document.createElement('li');
-                typeLi.textContent = `Tipo: ${type}`;
+                typeLi.textContent = `Tipo: ${capitalizeFirstLetter(type)}`;
                 characteristicsList.appendChild(typeLi);
             });
 
