@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const li2 = document.createElement("li");
   const mass = character.mass && character.mass !== "unknown" 
     ? character.mass 
-    : "Desconocido";
-  li2.textContent = mass === "Desconocido" 
+    : "Desconocida";
+  li2.textContent = mass === "Desconocida" 
     ? `Masa: ${mass}` 
     : `Masa: ${mass} kilos`;
 

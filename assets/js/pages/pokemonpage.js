@@ -28,23 +28,38 @@ async function renderTenPokemon() {
             const characteristicsList = document.getElementById(`poke-carasteristicas-${cardIndex}`);
             characteristicsList.innerHTML = '';
 
-            pokemon.types.forEach(type => {
-                const typeLi = document.createElement('li');
-                typeLi.textContent = `Tipo: ${capitalizeFirstLetter(type)}`;
-                characteristicsList.appendChild(typeLi);
-            });
+            const typeLi = document.createElement('li');
+            typeLi.textContent = `Tipos: ${pokemon.types && pokemon.types.length > 0 ? pokemon.types.map(type => capitalizeFirstLetter(type)).join(", ") : "Desconocidos"}`;
+            characteristicsList.appendChild(typeLi);
+
             /*
+
+    const li3 = document.createElement("li");
+    li3.textContent = `Tipos: ${pokemon.types && pokemon.types.length > 0 ? pokemon.types.map(type => capitalizeFirstLetter(type)).join(", ") : "Desconocidos"}`;
+
+        */
+
+            // Mostrar habilidades si están disponibles
             if (pokemon.abilities && pokemon.abilities.length > 0) {
                 const abilityLi = document.createElement('li');
                 const randomAbility = pokemon.abilities[Math.floor(Math.random() * pokemon.abilities.length)];
-                abilityLi.textContent = `Habilidad: ${randomAbility.ability.name}`;
+                abilityLi.textContent = `Habilidad: ${capitalizeFirstLetter(randomAbility)}`;
                 characteristicsList.appendChild(abilityLi);
-            } else {
-                const noAbilityLi = document.createElement('li');
-                noAbilityLi.textContent = `Habilidad: Desconocida`;
-                characteristicsList.appendChild(noAbilityLi);
             }
-            */
+
+            // Hacer la card clickeable
+            const pokemonCard = document.getElementById(`pokemon-${cardIndex}`);
+            if (pokemonCard) {
+                // Remover listeners previos para evitar duplicados
+                pokemonCard.replaceWith(pokemonCard.cloneNode(true));
+                const newCard = document.getElementById(`pokemon-${cardIndex}`);
+                
+                newCard.style.cursor = 'pointer';
+                newCard.addEventListener('click', () => {
+                    localStorage.setItem("selectedPokemon", JSON.stringify(pokemon));
+                    window.location.href = "pokemondetalle.html";
+                });
+            }
         } else {
             document.getElementById(`poke-nombre-${cardIndex}`).textContent = 'Error';
             document.getElementById(`poke-imgen-${cardIndex}`).src = 'https://placehold.co/160x160/e2e8f0/94a3b8?text=Error';

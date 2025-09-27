@@ -35,6 +35,20 @@ async function renderTenStarWarsCharacters() {
             birth_yearLi.textContent = `Año de nacimiento: ${character.birth_year || 'Desconocido'}`;
             characteristicsList.appendChild(birth_yearLi);
 
+            // Hacer la card clickeable
+            const starWarsCard = document.getElementById(`starwars-${cardIndex}`);
+            if (starWarsCard) {
+                // Remover listeners previos para evitar duplicados
+                starWarsCard.replaceWith(starWarsCard.cloneNode(true));
+                const newCard = document.getElementById(`starwars-${cardIndex}`);
+                
+                newCard.style.cursor = 'pointer';
+                newCard.addEventListener('click', () => {
+                    localStorage.setItem("selectedStarWarsCharacter", JSON.stringify(character));
+                    window.location.href = "starwarsdetalle.html";
+                });
+            }
+
         } else {
             document.getElementById(`starwars-nombre-${cardIndex}`).textContent = 'Error';
             document.getElementById(`starwars-imgen-${cardIndex}`).src = '../assets/images/default_starwars_profile_picture.jpg';
