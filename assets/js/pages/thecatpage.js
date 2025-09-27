@@ -9,12 +9,24 @@ async function renderTenCats() {
         document.getElementById(`gato-imgen-${i}`).src = 'https://placehold.co/160x160/f3e8ff/c084fc?text=...';
     }
 
-    const catPromises = [];
-    for (let i = 0; i < 10; i++) {
-        catPromises.push(getRandomCatImage());
+    async function fetchCatWithRetry(maxRetries = 3) {
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                const cat = await getRandomCatImage();
+                if (cat) return cat;
+            } catch (error) {
+                console.warn(`Intento ${attempt} fallido al cargar gato`, error);
+            }
+        }
+        return null;
     }
 
+    const catPromises = [];
+    for (let i = 0; i < 10; i++) {
+        catPromises.push(fetchCatWithRetry(3));
+    }
     const allCats = await Promise.all(catPromises);
+
 
     allCats.forEach((cat, index) => {
         const cardIndex = index + 1;

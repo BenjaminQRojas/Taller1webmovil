@@ -15,7 +15,7 @@ export async function getRandomCatImage() {
         return {
             id: cat.id,
             url: cat.url,
-            breed: cat.breeds.length > 0 ? cat.breeds[0].name : 'Desconocida'
+            breed: (cat.breeds.length > 0) ? cat.breeds[0].name : 'Desconocida'
         };
     }
     return null;
