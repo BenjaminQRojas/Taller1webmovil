@@ -1,5 +1,4 @@
 import { getRandomMeal } from '../api/themealdbapi.js';
-import { capitalizeFirstLetter } from '../api/utils.js';
 import { truncateText } from '../api/utils.js';
 
 // Función principal para renderizar las 10 recetas
@@ -35,7 +34,20 @@ async function renderTenMeals() {
             const instructionsLi = document.createElement('li');
             instructionsLi.textContent = `Instrucciones: ${truncateText(meal.instructions, 70)}`;
             characteristicsList.appendChild(instructionsLi);
+            
 
+            //Tarjeta receta
+            const recetaCard = document.getElementById(`receta-${cardIndex}`);
+            if (recetaCard) {
+                recetaCard.replaceWith(recetaCard.cloneNode(true));
+                const newCard = document.getElementById(`receta-${cardIndex}`);
+                
+                newCard.style.cursor = 'pointer';
+                newCard.addEventListener('click', () => {
+                    localStorage.setItem("selectedReceta", JSON.stringify(meal));
+                    window.location.href = "recetadetalle.html";
+                });
+            }
         } else {
             document.getElementById(`receta-nombre-${cardIndex}`).textContent = 'Error';
             document.getElementById(`receta-imgen-${cardIndex}`).src = 'https://placehold.co/160x160/fef3c7/d97706?text=Error';

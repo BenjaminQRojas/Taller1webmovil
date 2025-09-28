@@ -6,12 +6,19 @@ export async function getRandomMeal() {
 
     if (mealData && mealData.meals) {
         const meal = mealData.meals[0];
-        return {
+        const finalMeal = {
             name: meal.strMeal,
-            image: meal.strMealThumb,
+            image: meal.strMealThumb, 
             category: meal.strCategory,
             instructions: meal.strInstructions
         };
+        for (let i = 1; i <= 20; i++) {
+            const ingredientKey = `strIngredient${i}`;
+            const measureKey = `strMeasure${i}`;
+            finalMeal[ingredientKey] = meal[ingredientKey];
+            finalMeal[measureKey] = meal[measureKey];
+        }
+        return finalMeal;
     }
     return null;
 }

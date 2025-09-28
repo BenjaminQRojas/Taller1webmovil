@@ -64,6 +64,15 @@ async function renderMeal() {
             : meal.instructions || 'Sin instrucciones';
         listItem2.textContent = `Instrucciones: ${instructions}`;
         characteristicsList.appendChild(listItem2);
+
+         //guardar receta en localstorage
+        localStorage.setItem("selectedReceta", JSON.stringify(meal));
+
+        //hacer click en la tarjeta
+        const mealCard = document.getElementById("receta-del-dia");
+        mealCard.addEventListener("click", () => {
+            window.location.href = "pages/recetadetalle.html";
+        });
         } else {
             document.getElementById('receta-del-dia').innerHTML = '<p>No se pudo cargar la receta.</p>';
         }
