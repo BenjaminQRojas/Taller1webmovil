@@ -43,7 +43,22 @@ async function renderTenCats() {
             breedLi.textContent = `Raza: ${cat.breed || 'Desconocida'}`;
             characteristicsList.appendChild(breedLi);
 
-            
+            const card = document.getElementById(`gato-${cardIndex}`);
+            if (card) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    const gatoSeleccionado = {
+                        id: cat.id,
+                        url: cat.url,
+                        breed: cat.breed || 'Desconocida',
+                        name: `ID: ${cat.id}`
+                    };
+
+                    localStorage.setItem("selectedCat", JSON.stringify(gatoSeleccionado));
+                    window.location.href = "gatosdetalle.html";
+                });
+            }
+   
         } else {
             document.getElementById(`gato-nombre-${cardIndex}`).textContent = 'Error';
             document.getElementById(`gato-imgen-${cardIndex}`).src = 'https://placehold.co/160x160/f3e8ff/c084fc?text=Error';
