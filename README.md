@@ -1,5 +1,8 @@
 # Taller1webmovil
 
+## Instrucciones
+Simplemente ejecutar el archivo ***index.html***, con ello cargará toda la webApp
+
 ## REQUERIMIENTOS 
 
 ### Historia del Proyecto
