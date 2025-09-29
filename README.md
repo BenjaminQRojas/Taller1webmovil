@@ -3,6 +3,27 @@
 ## Instrucciones
 Simplemente ejecutar el archivo ***index.html***, con ello cargará toda la webApp
 
+# GRUPO 15
+
+## INTEGRANTES
+    Nicolás Ignacio Peralta | 21.004.634-8
+    Mauricio Díaz González | 21.227.728-2
+    Benjamín Quiroz Rojas | 19.956.115-4
+    Vicente Diaz Pastene | 21.487.788-0
+
+## APIs
+     ● PokeAPI
+     ● MealAPI
+     ● StarWarsAPI
+     ● CatAPI
+
+# Roles
+    Nico CSS
+    Benja Fetch
+    Mauri Queries
+    Vicente HTML->QA
+
+
 ## REQUERIMIENTOS 
 
 ### Historia del Proyecto
@@ -73,23 +94,4 @@ Responsividad y experiencia de usuario
     ● Mostrar información de manera clara y accesible.
 
     ● La experiencia de usuario debe ser fluida y atractiva.
-
-## INTEGRANTES
-    Nicolás Ignacio Peralta | 21.004.634-8
-    Mauricio Díaz González | 21.227.728-2
-    Benjamín Quiroz Rojas | 19.956.115-4
-    Vicente Diaz Pastene | 21.487.788-0
-
-
-### APIs
-     ● PokeAPI
-     ● MealAPI
-     ● StarWarsAPI
-     ● CatAPI
-
-# Roles
-## Nico CSS
-## Benja Fetch
-## Mauri Queries
-## Vicente HTML->QA
 
